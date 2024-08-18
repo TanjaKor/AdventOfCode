@@ -1,9 +1,3 @@
-#It contains at least three vowels (aeiou only), like aei,
-#  xazegov, or aeiouaeiouaeiou.
-#It contains at least one letter that appears twice in a row, 
-# like xx, abcdde (dd), or aabbccdd (aa, bb, cc, or dd).
-#It does not contain the strings ab, cd, pq, or xy, 
-# even if they are part of one of the other requirements.
 #avataan luettavaksi file missä stringit ja importataan groupby
 #tuplien etsimiseen
 from itertools import groupby
@@ -25,7 +19,7 @@ for string in stringl:
             isvowel = isvowel + 1
         #jos on kolme tai enemmän mennään ifin kautta muut ehdot
     if (isvowel > 2):
-    #etsitään tuplat, jos on
+    #etsitään tuplat
     #groupby jakaa stringin ryhmiin, joissa on vain samoja merkkejä
     #for loop käy läpi kaikki groupbyn luomat ryhmät
     #ja leng tarkistaa miten pitkät nuo ryhmät on (eli kuinka monta samaa merkkiä)

@@ -20,3 +20,4 @@ for i, string in enumerate(strings):
         if re.search(r'([a-z]).\1',string) is not None:
             count += 1
 print(count)
+file1.close
