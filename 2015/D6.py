@@ -1,25 +1,31 @@
 import numpy as np
 #luodaan gridi
 lights = np.zeros([1000,1000], dtype=int)
+#lights = np.zeros([10,10],dtype=int)
 #funktio millä laitetaan gridistä tietyt valot päälle
 def turnOn(first, second):
-    lights[first[0]:(second[0])+1,first[1]:(second[1]+1)]=1
+    lights[first[0]:(second[0]+1),first[1]:(second[1]+1)]=1
     return lights
 #valoja pois
 def turnOff(first, second):
-    lights[first[0]:(second[0])+1,first[1]:(second[1]+1)] = 0
+    lights[first[0]:(second[0]+1),first[1]:(second[1]+1)] = 0
     return lights
 #valojen muutos
-#def Toggle(first, second):
-#    if lights[first[0]:(second[0])+1,first[1]:(second[1]+1)] == 1:
-#        lights[first[0]:(second[0])+1,first[1]:(second[1]+1)]=0
-#    else:
-#        lights[first[0]:(second[0])+1,first[1]:(second[1]+1)]=1
-#    return lights
+def Toggle(first, second):
+    for i in lights[first[0]:(second[0]+1),first[1]:(second[1]+1)]:
+        for j in i:
+            if j == 1:
+                lights[j][i] = 0
+            else:
+                lights[j][i] = 1
+    return lights
 
 pair1 = [0,0]
 pair2 = [999,999]
 turnOn(pair1,pair2)
+unique, counts = np.unique(lights, return_counts=True)
+print( dict(zip(unique, counts)))
+Toggle([0,0],[999,0])
 unique, counts = np.unique(lights, return_counts=True)
 print( dict(zip(unique, counts)))
 turnOff([499,499],[500,500])
